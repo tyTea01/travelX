@@ -1,9 +1,13 @@
-import {useState} from 'react';
 import React from 'react';
+import {useState} from 'react';
 import { Button, TextField } from '@mui/material'
 import { outlinedInputClasses } from "@mui/material/OutlinedInput";
 import { inputLabelClasses } from "@mui/material/InputLabel";
 import { styled } from "@mui/material/styles";
+import { Navigate } from "react-router-dom";
+
+
+
 function formatSSN(value) {
   // if input value is falsy eg if the user deletes the input, then just return
   if (!value) return value;
@@ -66,10 +70,13 @@ const Home = () => {
       // we'll set the input value using our setInputValue
       setInputValue(formattedPhoneNumber);
     };
+    const [goToSecondPage, setGoToSecondPage] = React.useState(false);
+    if (goToSecondPage) {
+      return <Navigate to="/SecondPage" />;
+    }
 
-
-    
     return (
+    
       <div className="Home">
         <header className="Home-header">
           <h2>
@@ -86,7 +93,7 @@ const Home = () => {
             value={inputValue}
             onChange={(e) => handleInput(e)}
           />
-          <Button type="submit" variant="contained" style={{margin: '0 auto', display: "flex"}}>Submit</Button>
+          <Button onClick={() => {setGoToSecondPage(true)}} type="submit" variant="contained" style={{margin: '0 auto', display: "flex"}}>Submit</Button>
 
           
         </header>
