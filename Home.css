@@ -1,3 +1,4 @@
-.textfield {
-    
+.home {
+    flex-direction: column;
+    justify-content:space-between
 }
