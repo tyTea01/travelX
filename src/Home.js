@@ -5,6 +5,8 @@ import { outlinedInputClasses } from "@mui/material/OutlinedInput";
 import { inputLabelClasses } from "@mui/material/InputLabel";
 import { styled } from "@mui/material/styles";
 import { Navigate } from "react-router-dom";
+import Stack from '@mui/material/Stack';
+
 
 
 
@@ -70,15 +72,20 @@ const Home = () => {
       // we'll set the input value using our setInputValue
       setInputValue(formattedPhoneNumber);
     };
-    const [goToSecondPage, setGoToSecondPage] = React.useState(false);
-    if (goToSecondPage) {
-      return <Navigate to="/SecondPage" />;
+
+    const [goToDMV, setGoToDMV] = React.useState(false);
+    if (goToDMV) {
+      return <Navigate to="/DMV" />;
     }
 
+    //const [btnDisabled, setBtnDisabled] = useState(true)
+
     return (
-    
+      
       <div className="Home">
+        
         <header className="Home-header">
+        
           <h2>
             travelX
           </h2>
@@ -92,9 +99,16 @@ const Home = () => {
             
             value={inputValue}
             onChange={(e) => handleInput(e)}
+            //onChange={(e) => setBtnDisabled(!text.target.value)}
           />
-          <Button onClick={() => {setGoToSecondPage(true)}} type="submit" variant="contained" style={{margin: '0 auto', display: "flex"}}>Submit</Button>
-
+       
+    
+   
+          <Stack direction="row" spacing={2}>
+          <Button onClick={() => {setGoToDMV(true)}} type="submit" variant="contained" style={{margin: '0 auto', display: "flex"}} >DMV</Button>
+            <Button variant="contained" >SSN</Button>
+            <Button variant="contained" >DOS</Button>
+            </Stack>
           
         </header>
       </div>

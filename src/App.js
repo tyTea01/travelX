@@ -3,7 +3,8 @@ import './App.css';
 import React from 'react';
 import Header from './Header';
 import Home from './Home';
-import SecondPage from './SecondPage';
+import DMV from './DMV';
+import SS from './SS';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
@@ -16,7 +17,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/secondpage" element={<SecondPage />} />
+          <Route path="/DMV" element={<DMV />} />
+          <Route path="/SS" element={<SS />} />
         </Routes>
       </Router>
 
